@@ -4,10 +4,22 @@ pipeline {
   tools { nodejs "node11" }
 
   stages {
-    stage('Example') {
+    stage('Install deps') {
       steps {
         sh 'yarn'
       }
+    }
+
+    stage('Run tests') {
+      steps {
+        sh 'yarn test'
+      }
+
+      post {
+        always {
+          step([$class: 'CoberturaPublisher', coberturaReportFile: 'coverage/clover.xml'])
+        }
+      }      
     }
   }
 }

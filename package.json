@@ -18,7 +18,7 @@
   },
   "scripts": {
     "dev": "tsc-watch --onSuccess \"node ./dist/index.js\"",
-    "test": "jest --coverage --verbose"
+    "test": "jest --coverage --verbose --coverageDirectory=reports/coverage"
   },
   "dependencies": {
     "compression": "1.7.4",
@@ -37,6 +37,10 @@
       "jsx",
       "json",
       "node"
+    ],
+    "coverageReporters": [
+      "text",
+      "cobertura"
     ]
   }
 }
