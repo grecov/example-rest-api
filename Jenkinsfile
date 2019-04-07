@@ -1,14 +1,12 @@
 pipeline {
-  agent {
-    node {
-      label 'install deps'
-    }
+  agent any
 
-  }
+  tools { nodejs "node11" }
+
   stages {
-    stage('') {
+    stage('Example') {
       steps {
-        sh 'echo $PWD'
+        sh 'yarn'
       }
     }
   }
