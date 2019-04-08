@@ -3,7 +3,7 @@ pipeline {
 
   tools { 
     nodejs "node11" 
-    java "java"
+    jdk "java"
   }
 
   stages {
