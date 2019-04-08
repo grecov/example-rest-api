@@ -2,6 +2,7 @@ pipeline {
   agent any
 
   tools { nodejs "node11" }
+  tools { java "java" }
 
   stages {
     stage('Install deps') {
@@ -20,6 +21,12 @@ pipeline {
           junit "junit.xml"
         }
       }      
+    }
+
+    state('Acceptance tests') {
+      steps {
+
+      }
     }
   }
 }
