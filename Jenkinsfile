@@ -33,6 +33,15 @@ pipeline {
       post {
         always {
           junit "target/*.xml"
+
+          publishHTML (target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'target/cucumber-html-reports',
+            reportFiles: 'report-feature_tests-movies-feature.html',
+            reportName: "Karate reporting"
+          ])
         }
       }
     }
