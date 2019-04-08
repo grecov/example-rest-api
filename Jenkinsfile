@@ -29,6 +29,12 @@ pipeline {
       steps {
         sh 'java -jar karate.jar tests/movies.feature'
       }
+
+      post {
+        always {
+          junit "target/*.xml"
+        }
+      }
     }
   }
 }
