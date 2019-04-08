@@ -25,7 +25,7 @@ pipeline {
 
     state('Acceptance tests') {
       steps {
-
+        sh 'java -jar karate.jar tests/movie.feature'
       }
     }
   }
