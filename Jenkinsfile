@@ -1,8 +1,10 @@
 pipeline {
   agent any
 
-  tools { nodejs "node11" }
-  tools { java "java" }
+  tools { 
+    nodejs "node11" 
+    java "java"
+  }
 
   stages {
     stage('Install deps') {
@@ -23,7 +25,7 @@ pipeline {
       }      
     }
 
-    state('Acceptance tests') {
+    stage('Acceptance tests') {
       steps {
         sh 'java -jar karate.jar tests/movie.feature'
       }
